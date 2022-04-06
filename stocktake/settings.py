@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'stocktake.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
     }
 }
 
