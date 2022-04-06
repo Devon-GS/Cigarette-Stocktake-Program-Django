@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+      
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>YOU ARE ABOUT TO CLEAN THE DATABASE</h1>
+
+<h2>Are You Sure?</h2>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    <button type="submit" value="yes" name="info" class="btn btn-danger">YES</button>
+    <button type="submit" value="no" name="info" class="btn btn-secondary">NO</button>
+
+</form>
+
+{% else %}
+
+<h4>Access Denied</h4>
+<h4>Please Login To View This Page</h4>
+
+{% endif %} 
+
+{% endblock %}

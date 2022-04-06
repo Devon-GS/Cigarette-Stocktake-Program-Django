@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Calculate Stock On Hand</h1>
+
+<br/>
+
+<a href="{% url 'calculate_stock_on_hand' %}" class="btn btn-primary">Calculate Stock On Hand</a>
+
+<br/><br/>
+
+<a href="{% url 'csv_download' %}" class="btn btn-primary">Download CSV</a>
+
+<br/><br/>
+
+<a href="{% url 'clean_database' %}" class="btn btn-danger">Clean Database</a>
+
+{% else %}
+
+<h4>Access Denied</h4>
+<h4>Please Login To View This Page</h4>
+
+{% endif %}
+
+{% endblock %}

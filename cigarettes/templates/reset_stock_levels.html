@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Reset Stock Levels</h1>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">File Upload</label>
+    <input type="file" class="form-control-file" name="file">
+  </div>
+     <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% else %}
+
+<h4>Access Denied</h4>
+<h4>Please Login To View This Page</h4>
+
+{% endif %}
+
+{% endblock %}
