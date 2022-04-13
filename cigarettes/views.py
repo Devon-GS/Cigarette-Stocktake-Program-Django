@@ -57,11 +57,12 @@ def add_sales(request):
         for x in data:
             barcode = x[0]
             product = Cigarette.objects.get(barcode=barcode)
-            product.product_sales = x[2]
+            current_sales = product.product_sales 
+            product.product_sales = int(current_sales) + int(x[2])
             product.save()
             
         messages.success(request, "Sales Added Successfully")
-        return redirect('add_items')
+        return redirect('add_sales')
     
     else:
         return render(request, 'add_sales.html', {})
@@ -80,7 +81,8 @@ def add_purchases(request):
         for x in data:
             barcode = x[0]
             product = Cigarette.objects.get(barcode=barcode)
-            product.product_purchases = x[2]
+            current_purchases = product.product_purchases 
+            product.product_purchases = int(current_purchase) + int(x[2])
             product.save()
             
         messages.success(request, "Purchases Added Successfully")
