@@ -82,7 +82,7 @@ def add_purchases(request):
             barcode = x[0]
             product = Cigarette.objects.get(barcode=barcode)
             current_purchases = product.product_purchases 
-            product.product_purchases = int(current_purchase) + int(x[2])
+            product.product_purchases = int(current_purchases) + int(x[2])
             product.save()
             
         messages.success(request, "Purchases Added Successfully")
